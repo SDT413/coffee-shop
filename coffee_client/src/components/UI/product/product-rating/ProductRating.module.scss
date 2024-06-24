@@ -1,0 +1,6 @@
+.rating {
+    @apply flex items-center;
+  >span {
+    @apply text-sm font-bold mr-2;
+  }
+}

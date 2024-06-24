@@ -1,0 +1,11 @@
+.nav {
+  @apply text-right mt-4;
+}
+.nav > a {
+  @apply opacity-80 transition-opacity duration-300;
+}
+.nav:hover {
+  @apply opacity-100;
+}
+
+/*# sourceMappingURL=ProductGallery.module.css.map */

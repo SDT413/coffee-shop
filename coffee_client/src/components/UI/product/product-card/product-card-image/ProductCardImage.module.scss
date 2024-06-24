@@ -1,0 +1,13 @@
+.image{
+    @apply text-center;
+  .main {
+    @apply bg-white rounded-full mx-auto overflow-hidden w-[18.5rem] h-[18.5rem] flex items-center justify-center;
+    box-shadow: 0 5px 100px -50px #6c946b;
+       img {
+        @apply -mt-10;
+        }
+  }
+  .price{
+  @apply text-2xl text-green font-semibold -mt-[3.75rem];
+  }
+  }

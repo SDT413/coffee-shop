@@ -1,0 +1,21 @@
+.menu {
+  @apply flex items-center gap-10;
+}
+.menu > nav > ul {
+  @apply flex items-center gap-6;
+}
+.menu > nav > ul > li {
+  @apply flex items-center gap-6;
+}
+.menu > nav > ul > li > a {
+  @apply relative uppercase tracking-widest;
+}
+.menu > nav > ul > li > a::after {
+  content: "";
+  @apply absolute w-0 h-0.5 left-0 -bottom-3 bg-black transition-all duration-300;
+}
+.menu > nav > ul > li > a:hover::after {
+  @apply w-full;
+}
+
+/*# sourceMappingURL=Menu.module.css.map */

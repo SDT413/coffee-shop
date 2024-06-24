@@ -1,0 +1,17 @@
+.variants {
+  @apply grid grid-cols-4 gap-2.5 mt-5;
+  &.medium {
+    >button {
+      @apply text-[0.8rem];
+    }
+  }
+  >button {
+    @apply transition-colors duration-300 text-[0.6rem] font-semibold uppercase px-0.5 text-center border border-solid border-white bg-transparent rounded text-white;
+   &.active {
+     @apply text-dark-green bg-white;
+   }
+    .disabled {
+      @apply text-light-gray
+    }
+  }
+}

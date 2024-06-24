@@ -1,0 +1,8 @@
+.rating {
+  @apply flex items-center;
+}
+.rating > span {
+  @apply text-sm font-bold mr-2;
+}
+
+/*# sourceMappingURL=ProductRating.module.css.map */

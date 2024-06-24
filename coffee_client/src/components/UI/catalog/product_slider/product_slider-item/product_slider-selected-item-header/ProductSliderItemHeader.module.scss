@@ -1,0 +1,16 @@
+.itemHeader {
+  @apply relative;
+  .arrows{
+    @apply flex justify-between items-center absolute top-0 animate-scaleIn animate-opacity;
+    top: 45%;
+    width: 90%;
+    left: 5%;
+    .arrow {
+      @apply text-white;
+    }
+  }
+  .image{
+    @apply -mt-[4.5rem] block;
+  }
+
+}

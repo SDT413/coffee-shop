@@ -1,0 +1,23 @@
+.info {
+  >h2 {
+    @apply text-3xl font-bold text-dark-beige leading-tight mb-5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+  }
+  >div {
+    @apply mb-12;
+    >p {
+     @apply text-beige text-sm;
+    }
+  }
+  >button {
+   @apply rounded-2xl bg-white p-4 mr-4 last:mr-0 transition-colors ease-linear;
+    &.active {
+      @apply bg-dark-green;
+    }
+  }
+
+}

@@ -1,0 +1,17 @@
+.itemHeader {
+  @apply relative;
+}
+.itemHeader .arrows {
+  @apply flex justify-between items-center absolute top-0 animate-scaleIn animate-opacity;
+  top: 45%;
+  width: 90%;
+  left: 5%;
+}
+.itemHeader .arrows .arrow {
+  @apply text-white;
+}
+.itemHeader .image {
+  @apply -mt-[4.5rem] block;
+}
+
+/*# sourceMappingURL=ProductSliderItemHeader.module.css.map */
