@@ -10,7 +10,7 @@ const Search:FC = () => {
             <InputGroup size = 'xs'>
                 <InputLeftElement
                     pointerEvents='none'
-                    children={<SearchIcon color="gray.500" />}
+                    children={<SearchIcon color="gray.500" top={1} position='relative'/>}
                 />
             <Input className={styles.input}
                 variant="flushed"
