@@ -21,7 +21,7 @@ const ProductSliderSelectedItemHeader:FC<IProductSliderItemHeader> = ({product, 
                 )}
                 <button onClick={onSelectItem}
                     className={styles.image} aria-label={product.name}>
-                <Image src={product.images[0]} alt={product.name} width={320} height={320} draggable={false}/>
+                <Image src={product.images[0]} alt={product.name} width={320} height={320} draggable={false} className={styles.fixed_size}/>
                 </button>
             </div>
     );

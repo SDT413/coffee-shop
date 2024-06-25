@@ -20,11 +20,51 @@ package com.spring.data;
 ]
 
 "id": 3,
-"name": "Mango Dragonfruit Starbucks",
-"description": "Mango Dragonfruit Starbucks Refreshers Beverage is a tropical-inspired pick-me-up crafted with a combination of sweet mango and dragonfruit flavors, hand-shaken with ice and a scoop of real diced dragonfruit.",
-"slug": "mango-dragonfruit-starbucks",
+"name": "Cappuccino Tea",
+"description": "Cappuccino Tea is a holiday favorite made with espresso, steamed milk, sweet mocha sauce and peppermint-flavored syrup. It's all topped off with whipped cream and dark chocolate curls.",
+"slug": "cappuccino-tea",
+"price": 2.99,
+"images": [
+"/images/products/cappuccino-tea.jpeg",
+]
+
+"id": 4,
+"name": "classic coffee",
+"description": "classic coffee is a holiday favorite made with espresso, steamed milk, sweet mocha sauce and peppermint-flavored syrup. It's all topped off with whipped cream and dark chocolate curls.",
+"slug": "classic-coffee",
+"price": 3.99,
+"images": [
+"/images/products/classic-coffee.jpeg",
+]
+
+"id": 5,
+"name": "Frappuccino",
+"description": "Frappuccino is cold coffee drink topped with whipped cream and syrup.",
+"slug": "frappuccino",
 "price": 4.99,
 "images": [
-"/images/products/MintMocha.png",
+"/images/products/frappuccino.jpg",
 ]
+
+{
+"id": 6,
+"name": "Caramel Macchiato",
+"description": "Freshly steamed milk with vanilla-flavored syrup marked with espresso and topped with a caramel drizzle for an oh-so-sweet finish.",
+"slug": "caramel-macchiato",
+"price": 4.99,
+"images": [
+"/images/products/SBX20211029_CaramelMacchiato.png"
+]
+}
+
+{
+"id": 7,
+"name": "Cinnamon Dolce Latte",
+"description": "We add freshly steamed milk and cinnamon dolce-flavored syrup to our classic espresso, topped with sweetened whipped cream and a cinnamon dolce topping to bring you specialness in a treat.",
+"slug": "cinnamon-dolce-latte",
+"price": 8.99,
+"images": [
+"/images/products/SBX20190617_CinnamonDolceLatte.png"
+]
+}
 */

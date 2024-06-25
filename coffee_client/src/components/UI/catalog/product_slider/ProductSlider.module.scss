@@ -1,7 +1,7 @@
-@import "/src/assets/variables";
+@import "../../../../assets/variables.scss";
 
 .carousel {
-  @apply grid grid-cols-4 gap-8 mt-28;
+  @apply grid grid-cols-4 gap-8 gap-y-12 mt-28;
 }
 
 .item {

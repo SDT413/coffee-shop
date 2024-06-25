@@ -11,6 +11,11 @@
   }
   .image{
     @apply -mt-[4.5rem] block;
+
+    .fixed_size {
+      min-height: 320px;
+      max-height: 320px;
+    }
   }
 
 }
