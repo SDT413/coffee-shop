@@ -7,7 +7,30 @@ const productURL = '/products';
 
 const ProductsService = {
     async getAllProducts(sort?: EnumSort, category?: string, search?: string) {
-            if (sort) {
+        console.log("Fetching products");
+        console.log("sort: ", sort);
+        console.log("category: ", category);
+        console.log("search: ", search);
+        if (category && sort && search) {
+            const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
+            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder + "&search=" + search);
+            return data;
+        }
+        else if (category && sort) {
+            const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
+            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder);
+            return data;
+        }
+        else if (category && search) {
+            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&search=" + search);
+            return data;
+        }
+        else if (sort && search) {
+            const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
+            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder + "&search=" + search);
+            return data;
+        }
+        else if (sort) {
                 const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
                 const {data} = await axiosClassic.get<IProduct[]>(productURL + "?sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder);
                 return data;
@@ -18,25 +41,6 @@ const ProductsService = {
             }
             else if (search) {
                 const {data} = await axiosClassic.get<IProduct[]>(productURL + "?search=" + search);
-                return data;
-            }
-            else if (category && sort) {
-                const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder);
-                return data;
-            }
-            else if (category && search) {
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&search=" + search);
-                return data;
-            }
-            else if (sort && search) {
-                const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder + "&search=" + search);
-                return data;
-            }
-            else if (category && sort && search) {
-                const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder + "&search=" + search);
                 return data;
             }
             else {

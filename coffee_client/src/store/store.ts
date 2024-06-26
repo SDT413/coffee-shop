@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import {cartSlice} from './cart/cart.slice';
 import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist/es/constants";
 import {productSliderSlice} from "@/store/product_selector/product_slider.slice";
+import {configSlice} from "@/store/config/config.slice";
 
 const persistConfig : PersistConfig<any> = {
     key: 'xmas-shop',
@@ -16,7 +17,8 @@ const persistConfig : PersistConfig<any> = {
 
 const rootReducer = combineReducers({
     cart: cartSlice.reducer,
-    product_slider: productSliderSlice.reducer
+    product_slider: productSliderSlice.reducer,
+    config: configSlice.reducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({

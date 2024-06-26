@@ -15,6 +15,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAllProducts(String category, String search, String sort, String order) {
+        if (category != null && category.equals("All")) {
+            category = null;
+        }
         if (category != null && search != null && sort != null) {
             if (sort.equals("price")) {
                 if (order != null) {

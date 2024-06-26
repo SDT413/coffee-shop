@@ -3,10 +3,12 @@ import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {useMemo} from "react";
 import {productSliderSlice} from "@/store/product_selector/product_slider.slice";
+import {configSlice} from "@/store/config/config.slice";
 
 const rootAction = {
     ...cartSlice.actions,
-    ...productSliderSlice.actions
+    ...productSliderSlice.actions,
+    ...configSlice.actions
 }
 
 export const useActions = () => {
