@@ -1,4 +1,7 @@
+import {EnumSort} from "@/components/interfaces/sorting.interface";
+
 export interface IConfig {
     searchQuery: string;
-    category: "Ice-Coffee" | "Hot-Coffee" | "Tea" | "All";
+    category: string;
+    sortType: EnumSort;
 }

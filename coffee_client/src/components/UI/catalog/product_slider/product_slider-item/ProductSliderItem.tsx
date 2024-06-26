@@ -11,12 +11,14 @@ import {useProductSlider} from "@/hooks/useProductSlder";
 import {useActions} from "@/hooks/useActions";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import {useConfig} from "@/hooks/useConfig";
 
 
 const ProductSliderItem:FC<IProductSliderItem> = ({product, index, productsCount}) => {
     const [selectedSize, setSelectedSize] = useState<TypeSize>('short');
     const {selectedItemIndex} = useProductSlider();
     const {selectItem} = useActions();
+    const config = useConfig();
     let isActive = index === selectedItemIndex;
     return (
         <motion.div className={cn(styles.item, {
@@ -40,7 +42,7 @@ const ProductSliderItem:FC<IProductSliderItem> = ({product, index, productsCount
                 <>
                     <ProductSizeSelector selectedSize={selectedSize} setSelectedSize={setSelectedSize}/>
                     <AddToBasketButton product={product} selectedSize={selectedSize}/>
-                    <Link href={`/products/${product.slug}`} className={styles.link}>
+                    <Link href={`${config.category}/products/${product.slug}`} className={styles.link}>
                         More details
                     </Link>
                 </> :

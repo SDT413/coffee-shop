@@ -6,47 +6,23 @@ import sortTypeConverter from "@/components/utils/SortTypeConverter";
 const productURL = '/products';
 
 const ProductsService = {
-    async getAllProducts(sort?: EnumSort, category?: string, search?: string) {
-        console.log("Fetching products");
-        console.log("sort: ", sort);
-        console.log("category: ", category);
-        console.log("search: ", search);
-        if (category && sort && search) {
-            const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder + "&search=" + search);
-            return data;
+    async getAllProducts(sort?: EnumSort | undefined, category?: string, search?: string, excludeId?: number, page?: number, limit?: number) {
+        let convertedSort: BackendSortingInterface | undefined = undefined;
+        if (sort) {
+            convertedSort = sortTypeConverter(sort);
         }
-        else if (category && sort) {
-            const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder);
-            return data;
-        }
-        else if (category && search) {
-            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category + "&search=" + search);
-            return data;
-        }
-        else if (sort && search) {
-            const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-            const {data} = await axiosClassic.get<IProduct[]>(productURL + "?sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder + "&search=" + search);
-            return data;
-        }
-        else if (sort) {
-                const convertedSort: BackendSortingInterface = sortTypeConverter(sort);
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?sort=" + convertedSort.sortType + "&order=" + convertedSort.sortOrder);
-                return data;
+        let {data} = await axiosClassic.get<IProduct[]>(productURL, {
+            params: {
+                sort: convertedSort?.sortType,
+                order: convertedSort?.sortOrder,
+                category: category,
+                search: search ? search : undefined,
+                excludeId: excludeId,
+                page: page,
+                limit: limit
             }
-            else if (category) {
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?category=" + category);
-                return data;
-            }
-            else if (search) {
-                const {data} = await axiosClassic.get<IProduct[]>(productURL + "?search=" + search);
-                return data;
-            }
-            else {
-                const {data} = await axiosClassic.get<IProduct[]>(productURL);
-                return data;
-            }
+        });
+        return data;
     },
     async getProductById(id: number) {
         return axiosClassic.get<IProduct>(productURL + "/" + id);
@@ -57,10 +33,6 @@ const ProductsService = {
     },
      async getProductBySlug(slug: string) {
         return axiosClassic.get<IProduct>(productURL + "/slug/" + slug);
-    },
-    async SearchProducts(search: string) {
-      const {data} = await axiosClassic.get<IProduct[]>(productURL + "/search/" + search);
-        return data;
     },
     async createProduct(product: IProduct) {
         return axiosClassic.post(productURL, product);

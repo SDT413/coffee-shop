@@ -14,80 +14,110 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
     @Override
-    public List<Product> getAllProducts(String category, String search, String sort, String order) {
-        if (category != null && category.equals("All")) {
+    public List<Product> getAllProducts(String category, String search, String sort, String order, Integer excludeId, String page, String limit) {
+        if (category != null && category.equals("all")) {
             category = null;
         }
-        if (category != null && search != null && sort != null) {
-            if (sort.equals("price")) {
-                if (order != null) {
-                    if (order.equals("asc")) {
-                        return productRepository.findAllByCategoryAndNameContainingOrderByPriceAsc(category, search);
-                    } else if (order.equals("desc")) {
-                        return productRepository.findAllByCategoryAndNameContainingOrderByPriceDesc(category, search);
-                    }
-                }
-            }
-            if (sort.equals("date")) {
-                if (order != null) {
-                    if (order.equals("asc")) {
-                        return productRepository.findAllByCategoryAndNameContainingOrderByCreatedAtAsc(category, search);
-                    } else if (order.equals("desc")) {
-                        return productRepository.findAllByCategoryAndNameContainingOrderByCreatedAtDesc(category, search);
-                    }
-                }
-            }
-        }
-        if (category != null && sort != null) {
-            if (sort.equals("price")) {
-                if (order != null) {
-                    if (order.equals("asc")) {
-                        return productRepository.findAllByCategoryOrderByPriceAsc(category);
-                    } else if (order.equals("desc")) {
-                        return productRepository.findAllByCategoryOrderByPriceDesc(category);
-                    }
-                }
-            }
-            if (sort.equals("date")) {
-                if (order != null) {
-                    if (order.equals("asc")) {
-                        return productRepository.findAllByCategoryOrderByCreatedAtAsc(category);
-                    } else if (order.equals("desc")) {
-                        return productRepository.findAllByCategoryOrderByCreatedAtDesc(category);
-                    }
-                }
-            }
-        }
-        if (category != null && search != null) {
-            return productRepository.findAllByCategoryAndNameContaining(category, search);
-        }
-        if (category != null) {
-            return productRepository.findAllByCategory(category);
-        }
         if (search != null) {
-            return productRepository.SearchProducts(search);
+            search = search.trim();
+            search = search.toLowerCase();
         }
-        if (sort != null) {
+        List<Product> result = null;
+        if (category != null && search != null && sort != null) {
+            if (order != null) {
             if (sort.equals("price")) {
-                if (order != null) {
                     if (order.equals("asc")) {
-                        return productRepository.findAllByOrderByPriceAsc();
+                       result = productRepository.findAllByCategoryAndNameContainingIgnoreCaseOrderByPriceAsc(category, search);
                     } else if (order.equals("desc")) {
-                        return productRepository.findAllByOrderByPriceDesc();
+                        result = productRepository.findAllByCategoryAndNameContainingIgnoreCaseOrderByPriceDesc(category, search);
                     }
                 }
+            else if (sort.equals("date")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByCategoryAndNameContainingIgnoreCaseOrderByCreatedAtAsc(category, search);
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByCategoryAndNameContainingIgnoreCaseOrderByCreatedAtDesc(category, search);
+                    }
             }
-            if (sort.equals("date")) {
-                if (order != null) {
-                    if (order.equals("asc")) {
-                        return productRepository.findAllByOrderByCreatedAtAsc();
-                    } else if (order.equals("desc")) {
-                        return productRepository.findAllByOrderByCreatedAtDesc();
-                    }
-                }
             }
         }
-        return productRepository.findAll();
+        else if (category != null && search != null) {
+            result = productRepository.findAllByCategoryAndNameContainingIgnoreCase(category, search);
+        }
+        else if (category != null && sort != null) {
+            if (order != null) {
+            if (sort.equals("price")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByCategoryOrderByPriceAsc(category);
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByCategoryOrderByPriceDesc(category);
+                    }
+                }
+            else if (sort.equals("date")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByCategoryOrderByCreatedAtAsc(category);
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByCategoryOrderByCreatedAtDesc(category);
+                    }
+            }
+            }
+        }
+        else if (search != null && sort != null) {
+            if (order != null) {
+            if (sort.equals("price")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByNameContainingIgnoreCaseOrderByPriceAsc(search);
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByNameContainingIgnoreCaseOrderByPriceDesc(search);
+                    }
+                }
+            else if (sort.equals("date")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByNameContainingIgnoreCaseOrderByCreatedAtAsc(search);
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByNameContainingIgnoreCaseOrderByCreatedAtDesc(search);
+                    }
+            }
+            }
+        }
+        else if (category != null) {
+            result = productRepository.findAllByCategory(category);
+        }
+        else if (search != null) {
+            result = productRepository.findAllByNameContainingIgnoreCase(search);
+        }
+        else if (sort != null) {
+            if (order != null) {
+            if (sort.equals("price")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByOrderByPriceAsc();
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByOrderByPriceDesc();
+                    }
+                }
+            else if (sort.equals("date")) {
+                    if (order.equals("asc")) {
+                        result = productRepository.findAllByOrderByCreatedAtAsc();
+                    } else if (order.equals("desc")) {
+                        result = productRepository.findAllByOrderByCreatedAtDesc();
+                    }
+            }
+            }
+        }
+        else {
+            result = productRepository.findAll();
+        }
+        if (excludeId != null && excludeId > 0 && result != null) {
+            result.removeIf(p -> Objects.equals(p.getId().intValue(), excludeId));
+        }
+        if (page != null && limit != null && result != null) {
+            int p = Integer.parseInt(page);
+            int l = Integer.parseInt(limit);
+            int start = (p - 1) * l;
+            int end = Math.min(start + l, result.size());
+            result = result.subList(start, end);
+        }
+        return result;
     }
 
     @Override

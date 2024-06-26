@@ -1,12 +1,10 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IProductSliderInitialState} from "@/store/product_selector/product_slider.types";
-import {EnumSort} from "@/components/interfaces/sorting.interface";
 
 
 const initialState: IProductSliderInitialState = {
     selectedItemIndex: 0,
     items: [],
-    sortType: EnumSort.INCREASING_PRICE,
     searchQuery: ''
 }
 

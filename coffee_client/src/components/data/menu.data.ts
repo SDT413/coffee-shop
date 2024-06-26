@@ -2,19 +2,19 @@ import {IMenuLink} from "@/components/interfaces/menu-item.interface";
 
 export const menu: IMenuLink[] = [
     {
-        name: 'All',
-        path: '/'
+        name: 'all',
+        path: '/all'
     },
     {
-        name: 'Ice-Coffee',
-        path: '/'
+        name: 'ice-coffee',
+        path: '/ice-coffee'
     },
     {
-        name: 'Hot-Coffee',
-        path: '/'
+        name: 'hot-coffee',
+        path: '/hot-coffee'
     },
     {
-        name: 'Tea',
-        path: '/'
+        name: 'tea',
+        path: '/tea'
     }
 ]

@@ -18,8 +18,12 @@ public class ProductResource {
     public List<Product> getAllProducts(@RequestParam(required = false) String category,
                                         @RequestParam(required = false) String search,
                                         @RequestParam(required = false) String sort,
-                                        @RequestParam(required = false) String order) {
-            return productService.getAllProducts(category, search, sort, order);
+                                        @RequestParam(required = false) String order,
+                                        @RequestParam(required = false) Integer excludeId,
+                                        @RequestParam(required = false) String page,
+                                        @RequestParam(required = false) String limit
+                                        ) {
+            return productService.getAllProducts(category, search, sort, order, excludeId, page, limit);
     }
     @GetMapping("/slug/{slug}")
     public Product findBySlug(@PathVariable String slug) {

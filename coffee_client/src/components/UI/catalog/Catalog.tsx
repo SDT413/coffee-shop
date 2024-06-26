@@ -12,14 +12,14 @@ import {useConfig} from "@/hooks/useConfig";
 const Catalog :FC<{products: IProduct[]}> = ({products}) => {
     const [sortType, setSortType] = useState<EnumSort>(EnumSort.NEWEST);
     const config = useConfig();
-    const {data, isLoading} = useGetAllProducts(sortType, config.category, config.searchQuery, products);
+    const {data, isLoading} = useGetAllProducts({products: products, sort: sortType, category: config.category, search: config.searchQuery});
     return (
         <div className='relative'>
           <div className={'text-right mt-10'}>
               <Sorting sortType={sortType} setSortType={setSortType}/>
           </div>
             {isLoading ? <Loader/> :
-            <ProductsSlider products={data}/>
+            <ProductsSlider products={data ? data : []}/>
             }
         </div>
     );

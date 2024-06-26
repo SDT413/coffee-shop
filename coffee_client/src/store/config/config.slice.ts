@@ -1,10 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IConfig} from "@/store/config/config.types";
+import {EnumSort} from "@/components/interfaces/sorting.interface";
 
 
 const initialState: IConfig = {
     searchQuery: '',
-    category: "All"
+    category: window.location.pathname.split('/')[1] === 'all' ? '' : window.location.pathname.split('/')[1],
+    sortType: EnumSort.NEWEST
 }
 
 export const configSlice = createSlice({
@@ -14,8 +16,11 @@ export const configSlice = createSlice({
         setSearchQuery: (state, action: PayloadAction<string>) => {
             state.searchQuery = action.payload;
         },
-        setCategory: (state, action: PayloadAction<"Ice-Coffee" | "Hot-Coffee" | "Tea" | "All">) => {
+        setCategory: (state, action: PayloadAction<string>) => {
             state.category = action.payload;
         },
+        setSortTypeConfig: (state, action: PayloadAction<EnumSort>) => {
+            state.sortType = action.payload;
+        }
     }
 });
