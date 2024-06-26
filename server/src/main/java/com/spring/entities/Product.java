@@ -2,6 +2,7 @@ package com.spring.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,7 @@ public class Product {
     private String description;
     private Double price;
     private String slug;
+    private String category;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Review> reviews;

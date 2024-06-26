@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -13,7 +14,76 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Product> getAllProducts(String category, String search, String sort, String order) {
+        if (category != null && search != null && sort != null) {
+            if (sort.equals("price")) {
+                if (order != null) {
+                    if (order.equals("asc")) {
+                        return productRepository.findAllByCategoryAndNameContainingOrderByPriceAsc(category, search);
+                    } else if (order.equals("desc")) {
+                        return productRepository.findAllByCategoryAndNameContainingOrderByPriceDesc(category, search);
+                    }
+                }
+            }
+            if (sort.equals("date")) {
+                if (order != null) {
+                    if (order.equals("asc")) {
+                        return productRepository.findAllByCategoryAndNameContainingOrderByCreatedAtAsc(category, search);
+                    } else if (order.equals("desc")) {
+                        return productRepository.findAllByCategoryAndNameContainingOrderByCreatedAtDesc(category, search);
+                    }
+                }
+            }
+        }
+        if (category != null && sort != null) {
+            if (sort.equals("price")) {
+                if (order != null) {
+                    if (order.equals("asc")) {
+                        return productRepository.findAllByCategoryOrderByPriceAsc(category);
+                    } else if (order.equals("desc")) {
+                        return productRepository.findAllByCategoryOrderByPriceDesc(category);
+                    }
+                }
+            }
+            if (sort.equals("date")) {
+                if (order != null) {
+                    if (order.equals("asc")) {
+                        return productRepository.findAllByCategoryOrderByCreatedAtAsc(category);
+                    } else if (order.equals("desc")) {
+                        return productRepository.findAllByCategoryOrderByCreatedAtDesc(category);
+                    }
+                }
+            }
+        }
+        if (category != null && search != null) {
+            return productRepository.findAllByCategoryAndNameContaining(category, search);
+        }
+        if (category != null) {
+            return productRepository.findAllByCategory(category);
+        }
+        if (search != null) {
+            return productRepository.SearchProducts(search);
+        }
+        if (sort != null) {
+            if (sort.equals("price")) {
+                if (order != null) {
+                    if (order.equals("asc")) {
+                        return productRepository.findAllByOrderByPriceAsc();
+                    } else if (order.equals("desc")) {
+                        return productRepository.findAllByOrderByPriceDesc();
+                    }
+                }
+            }
+            if (sort.equals("date")) {
+                if (order != null) {
+                    if (order.equals("asc")) {
+                        return productRepository.findAllByOrderByCreatedAtAsc();
+                    } else if (order.equals("desc")) {
+                        return productRepository.findAllByOrderByCreatedAtDesc();
+                    }
+                }
+            }
+        }
         return productRepository.findAll();
     }
 
@@ -70,28 +140,5 @@ public class ProductServiceImpl implements ProductService {
                     return p;
                 }).orElseThrow(() -> new RuntimeException("Product not found with id " + id));
 
-    }
-    @Override
-    public List<Product> SearchProducts(String keyword) {
-        return productRepository.SearchProducts(keyword);
-    }
-
-    @Override
-    public List<Product> SortByIncreasingPrice() {
-        return productRepository.findAllByOrderByPriceAsc();
-    }
-
-    @Override
-    public List<Product> SortByDecreasingPrice() {
-        return productRepository.findAllByOrderByPriceDesc();
-    }
-
-    @Override
-    public List<Product> SortByNewest() {
-        return productRepository.findAllByOrderByCreatedAtDesc();
-    }
-    @Override
-    public List<Product> SortByOldest() {
-        return productRepository.findAllByOrderByCreatedAtAsc();
     }
 }

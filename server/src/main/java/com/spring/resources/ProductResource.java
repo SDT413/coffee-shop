@@ -15,8 +15,11 @@ public class ProductResource {
     private final ProductService productService;
 
     @GetMapping("")
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public List<Product> getAllProducts(@RequestParam(required = false) String category,
+                                        @RequestParam(required = false) String search,
+                                        @RequestParam(required = false) String sort,
+                                        @RequestParam(required = false) String order) {
+            return productService.getAllProducts(category, search, sort, order);
     }
     @GetMapping("/slug/{slug}")
     public Product findBySlug(@PathVariable String slug) {
@@ -47,25 +50,6 @@ public class ProductResource {
     public void DeleteImage(@PathVariable Long id, @RequestBody String image) {
         productService.DeleteImage(id, image);
     }
-    @GetMapping("/search/{keyword}")
-    public List<Product> SearchProducts(@PathVariable String keyword) {
-        return productService.SearchProducts(keyword);
-    }
-    @GetMapping("/sort=price&order=asc")
-    public List<Product> SortByIncreasingPrice() {
-        return productService.SortByIncreasingPrice();
-    }
-    @GetMapping("/sort=price&order=desc")
-    public List<Product> SortByDecreasingPrice() {
-        return productService.SortByDecreasingPrice();
-    }
-    @GetMapping("/sort=date&order=asc")
-    public List<Product> SortByOldest() {
-        return productService.SortByOldest();
-    }
-    @GetMapping("/sort=date&order=desc")
-    public List<Product> SortByNewest() {
-        return productService.SortByNewest();
-    }
+
 
 }

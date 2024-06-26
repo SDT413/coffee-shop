@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from 'react';
 import Layout from "@/components/UI/Layout";
 import Title from "@/components/UI/title/Title";
-import {IProduct, IProductProps} from "@/components/interfaces/Product.interface";
+import {IProductProps} from "@/components/interfaces/Product.interface";
 import ProductBreadCrumbs from "@/components/UI/product/product-breadcrumbs/ProductBreadCrumbs";
 import ProductGallery from "@/components/UI/product/product-gallary/ProductGallery";
 import ProductCard from "@/components/UI/product/product-card/ProductCard";
