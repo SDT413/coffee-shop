@@ -6,7 +6,6 @@ import {useActions} from "@/hooks/useActions";
 import {useConfig} from "@/hooks/useConfig";
 
 const Search:FC = () => {
-    const [search, setSearch] = useState<string>('')
     const {setSearchQuery} = useActions();
     const config = useConfig();
     return (
@@ -21,11 +20,9 @@ const Search:FC = () => {
                    size = 'base'
                    type = 'search'
                    placeholder = 'Search'
-                   value = {search}
+                   value = {config.searchQuery}
                    onChange = {(e) => {
-                          setSearch(e.target.value);
                           setSearchQuery(e.target.value);
-                          console.log(config.searchQuery);
                    } }
                     _focus={
                         {
