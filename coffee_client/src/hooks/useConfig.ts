@@ -5,7 +5,8 @@ export const useConfig = () => {
     const {
         searchQuery,
         category,
-        sortType
+        sortType,
+        activeDetailLink
     } = useTypedSelector(state => state.config);
-    return useMemo(() => ({ searchQuery, category, sortType }), [searchQuery, category, sortType]);
+    return useMemo(() => ({ searchQuery, category, sortType, activeDetailLink }), [searchQuery, category, sortType, activeDetailLink]);
 }

@@ -6,7 +6,8 @@ import {EnumSort} from "@/components/interfaces/sorting.interface";
 const initialState: IConfig = {
     searchQuery: '',
     category: window.location.pathname.split('/')[1] === 'all' ? '' : window.location.pathname.split('/')[1],
-    sortType: EnumSort.NEWEST
+    sortType: EnumSort.NEWEST,
+    activeDetailLink: ''
 }
 
 export const configSlice = createSlice({
@@ -21,6 +22,9 @@ export const configSlice = createSlice({
         },
         setSortTypeConfig: (state, action: PayloadAction<EnumSort>) => {
             state.sortType = action.payload;
+        },
+        setActiveDetailLink: (state, action: PayloadAction<string>) => {
+            state.activeDetailLink = action.payload;
         }
     }
 });

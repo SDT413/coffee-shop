@@ -6,6 +6,8 @@ import ProductDetails from "@/components/product-details/ProductDetails";
 import ProductsService from "@/api/Products.service";
 import {useActions} from "@/hooks/useActions";
 import Home from "@/components/home/Home";
+import {useConfig} from "@/hooks/useConfig";
+import {useRouter} from "next/navigation";
 
 
 const ProductPage: NextPage = () => {
@@ -13,7 +15,15 @@ const ProductPage: NextPage = () => {
     useEffect(() => {
         setCategory("hot-coffee");
     }, []);
-
+    const config = useConfig();
+    const router = useRouter();
+    useEffect(() => {
+        if (config) {
+            if (config.activeDetailLink && config.activeDetailLink !== "") {
+                router.push("/"+config.category + '/' + config.activeDetailLink);
+            }
+        }
+    }, []);
 
     return (
         <Home/>

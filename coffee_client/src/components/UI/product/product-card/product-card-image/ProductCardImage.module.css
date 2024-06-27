@@ -12,4 +12,13 @@
   @apply text-2xl text-green font-semibold -mt-[3.75rem];
 }
 
+@media (max-width: 425px) {
+  .image .main {
+    @apply w-[12rem] h-[12rem];
+  }
+  .image .price {
+    @apply text-xl -mt-[2.5rem];
+  }
+}
+
 /*# sourceMappingURL=ProductCardImage.module.css.map */

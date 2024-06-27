@@ -4,4 +4,10 @@
   font-size: 12px;
 }
 
+@media (max-width: 1000px) {
+  .button {
+    @apply mt-16;
+  }
+}
+
 /*# sourceMappingURL=AddToBasketButton.module.css.map */

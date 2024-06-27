@@ -7,6 +7,7 @@ import {useQuery} from "@tanstack/react-query";
 import ProductsService from "@/api/Products.service";
 import Loader from "@/components/UI/Loader/Loader";
 import useGetAllProducts from "@/hooks/Query/useGetAllProducts";
+import styles from './Catalog.module.scss';
 import {useConfig} from "@/hooks/useConfig";
 
 const Catalog :FC<{products: IProduct[]}> = ({products}) => {
@@ -14,8 +15,8 @@ const Catalog :FC<{products: IProduct[]}> = ({products}) => {
     const config = useConfig();
     const {data, isLoading} = useGetAllProducts({products: products, sort: sortType, category: config.category, search: config.searchQuery});
     return (
-        <div className='relative'>
-          <div className={'text-right mt-10'}>
+        <div className={styles.container}>
+          <div className={styles.sorting}>
               <Sorting sortType={sortType} setSortType={setSortType}/>
           </div>
             {isLoading ? <Loader/> :

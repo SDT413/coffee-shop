@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import styles from '../ProductSlider.module.scss';
 import cn from 'clsx'
 import AddToBasketButton from "@/components/UI/product/product-slider-button/AddToBasketButton";
@@ -17,9 +17,11 @@ import {useConfig} from "@/hooks/useConfig";
 const ProductSliderItem:FC<IProductSliderItem> = ({product, index, productsCount}) => {
     const [selectedSize, setSelectedSize] = useState<TypeSize>('short');
     const {selectedItemIndex} = useProductSlider();
-    const {selectItem} = useActions();
+    const {selectItem, setActiveDetailLink} = useActions();
     const config = useConfig();
     let isActive = index === selectedItemIndex;
+    const link = `/${config.category}/products/${product.slug}`;
+    const detailLink = 'products/' + product.slug;
     return (
         <motion.div className={cn(styles.item, {
             [styles.active]: isActive
@@ -42,7 +44,12 @@ const ProductSliderItem:FC<IProductSliderItem> = ({product, index, productsCount
                 <>
                     <ProductSizeSelector selectedSize={selectedSize} setSelectedSize={setSelectedSize}/>
                     <AddToBasketButton product={product} selectedSize={selectedSize}/>
-                    <Link href={`${config.category}/products/${product.slug}`} className={styles.link}>
+                    {/** replace current link with the one below */}
+                    <Link href={link} className={styles.link} aria-label={'More details'} onClick={
+                        () => {
+                            setActiveDetailLink(detailLink);
+                        }
+                    } >
                         More details
                     </Link>
                 </> :

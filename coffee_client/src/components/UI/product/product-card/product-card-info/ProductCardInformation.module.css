@@ -18,4 +18,18 @@
   @apply bg-dark-green;
 }
 
+@media (max-width: 1000px) {
+  .info > h2 {
+    @apply text-center;
+  }
+  .image_desktop {
+    display: none;
+  }
+}
+@media (max-width: 425px) {
+  .info > h2 {
+    @apply text-2xl;
+  }
+}
+
 /*# sourceMappingURL=ProductCardInformation.module.css.map */

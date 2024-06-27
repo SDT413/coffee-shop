@@ -4,6 +4,7 @@ import {NextPage} from "next";
 import {useEffect, useState} from "react";
 import ProductDetails from "@/components/product-details/ProductDetails";
 import ProductsService from "@/api/Products.service";
+import {useActions} from "@/hooks/useActions";
 
 interface PageProps {
    params: {
@@ -12,6 +13,7 @@ interface PageProps {
 }
 const ProductPage: NextPage<PageProps> = ({params}) => {
     const [product, setProduct] = useState<IProduct>();
+    const {setActiveDetailLink} = useActions();
     useEffect(() => {
         const getProduct = async () => {
             const response = await ProductsService.getProductBySlug(params.slug);
@@ -19,6 +21,8 @@ const ProductPage: NextPage<PageProps> = ({params}) => {
             setProduct(product);
         };
         getProduct().then(r => console.log(r));
+        const detailLink = 'products/' + params.slug;
+        setActiveDetailLink(detailLink);
     }, [params.slug]);
 
 

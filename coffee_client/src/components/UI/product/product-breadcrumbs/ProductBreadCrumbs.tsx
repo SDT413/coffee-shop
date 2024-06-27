@@ -5,9 +5,9 @@ import styles from './ProductBreadCrumbs.module.scss';
 
 const ProductBreadCrumbs:FC<IProductProps>= ({product}) => {
     return (
-            <Breadcrumb display={'flex'} marginTop={8} justifyContent={'end'}>
+        <Breadcrumb className={styles.breadcrumb}>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href="/"> Home </BreadcrumbLink>
+                    <BreadcrumbLink href="/all"> Home </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem isCurrentPage>
                     <BreadcrumbLink className={styles.defaultlink}>{product.name}</BreadcrumbLink>

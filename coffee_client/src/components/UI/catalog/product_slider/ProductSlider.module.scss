@@ -45,3 +45,32 @@
 .link {
   @apply text-xs text-center font-semibold block mt-2.5 text-white;
 }
+
+@media (max-width: 1100px) {
+    .carousel {
+        @apply grid-cols-3;
+    }
+}
+
+@media (max-width: 950px) {
+    .carousel {
+        @apply grid-cols-2;
+    }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    @apply grid-cols-1 gap-4 mt-28;
+  }
+  .item {
+    @apply p-4;
+    .heading{
+      @apply text-2xl;
+    }
+    .description{
+      @apply text-base mt-3;
+    }
+  }
+  
+}
+

@@ -2,3 +2,9 @@
     @apply relative p-10 my-8 bg-light-gray grid grid-cols-3 gap-5;
     border-radius: 2rem;
 }
+
+@media (max-width: 1000px) {
+    .card {
+        @apply grid-cols-1;
+    }
+}

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"ProductCardVariations.module.css"}
+{"version":3,"sourceRoot":"","sources":["ProductCardVariations.module.scss"],"names":[],"mappings":"AAAA;EACI;;;AAGJ;EACE;IACE;;EACA;IACE;;EACA;IACE;;EAIN;IACM","file":"ProductCardVariations.module.css"}

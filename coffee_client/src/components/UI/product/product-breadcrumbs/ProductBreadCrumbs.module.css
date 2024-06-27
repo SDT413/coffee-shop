@@ -3,4 +3,17 @@
   color: #000000;
 }
 
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  margin-top: 32px;
+}
+
+@media (max-width: 1000px) {
+  .breadcrumb {
+    justify-content: center;
+  }
+}
+
 /*# sourceMappingURL=ProductBreadCrumbs.module.css.map */

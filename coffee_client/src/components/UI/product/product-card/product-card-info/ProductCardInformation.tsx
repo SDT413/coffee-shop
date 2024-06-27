@@ -23,7 +23,8 @@ const ProductCardInformation:FC<IProductCardInformationProps> = ({product, index
             {product.images.map((image, img_index) => <button key = {image} onClick={() => setIndex(img_index)} className={
                 cn(styles.image, {
                     [styles.active]: img_index === index
-                })
+                }, styles.image_desktop
+                )
                 }>
                 <Image src={image} width={50} height={50} alt={'image'}/>
             </button>

@@ -11,7 +11,7 @@ const ProductCard:FC<IProductProps> = ({product}) => {
         <div className={styles.card}>
             <ProductCardInformation product={product} index={currentImageIndex} setIndex = {setCurrentImageIndex}/>
             <ProductCardImage product={product} index={currentImageIndex}/>
-            <ProductCardVariations product={product}/>
+            <ProductCardVariations product={product} index={currentImageIndex} setIndex={setCurrentImageIndex}/>
         </div>
     );
 };

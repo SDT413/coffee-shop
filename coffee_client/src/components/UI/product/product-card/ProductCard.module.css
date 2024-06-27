@@ -3,4 +3,10 @@
   border-radius: 2rem;
 }
 
+@media (max-width: 1000px) {
+  .card {
+    @apply grid-cols-1;
+  }
+}
+
 /*# sourceMappingURL=ProductCard.module.css.map */

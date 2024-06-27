@@ -3,7 +3,6 @@ import Layout from "@/components/UI/Layout";
 import Title from "@/components/UI/title/Title";
 import {IProductProps} from "@/components/interfaces/Product.interface";
 import ProductBreadCrumbs from "@/components/UI/product/product-breadcrumbs/ProductBreadCrumbs";
-import ProductGallery from "@/components/UI/product/product-gallary/ProductGallery";
 import ProductCard from "@/components/UI/product/product-card/ProductCard";
 import Catalog from "@/components/UI/catalog/Catalog";
 import useGetAllProducts from "@/hooks/Query/useGetAllProducts";
@@ -17,7 +16,6 @@ const ProductDetails: FC<IProductProps> = ({product}) => {
                   Product Details
                 </Title>
                 <ProductBreadCrumbs product={product}/>
-                <ProductGallery product={product}/>
                 <ProductCard product={product}/>
                 <Catalog products={data ? data : []}/>
             </Layout>

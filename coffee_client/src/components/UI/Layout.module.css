@@ -5,4 +5,10 @@
   @apply relative mx-auto max-w-7xl;
 }
 
+@media (max-width: 768px) {
+  .layout > main {
+    @apply py-4 px-4;
+  }
+}
+
 /*# sourceMappingURL=Layout.module.css.map */

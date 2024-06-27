@@ -1,3 +1,20 @@
+.image_mobile {
+  display: none;
+}
 
+@media (max-width: 1000px) {
+  .variations {
+    @apply flex flex-wrap flex-col items-center;
+  }
+  .variations > button {
+    @apply rounded-2xl bg-white p-4 mr-4 last:mr-0 transition-colors ease-linear mt-4;
+  }
+  .variations > button.active {
+    @apply bg-dark-green;
+  }
+  .image_mobile {
+    @apply block;
+  }
+}
 
 /*# sourceMappingURL=ProductCardVariations.module.css.map */

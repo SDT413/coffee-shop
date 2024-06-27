@@ -1,8 +1,8 @@
 .menu {
     @apply flex items-center gap-10;
 
-    > nav {
-        > ul{
+    .navbar {
+        .menu_list {
             @apply flex items-center gap-6;
             > li{
                 @apply flex items-center gap-6;
@@ -15,6 +15,65 @@
                     }
                     &:hover::after {
                         @apply w-full;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar_mobile {
+        @apply hidden;
+    }
+}
+
+@media (max-width: 1100px){
+    .menu {
+        @apply flex-col gap-6;
+        .navbar {
+            @apply flex items-center justify-between;
+            .menu_list {
+                @apply flex items-center gap-6;
+                > li{
+                    @apply flex items-center gap-6;
+                    > a {
+                        @apply relative uppercase tracking-widest;
+
+                        &::after {
+                            content: "";
+                            @apply absolute w-0 h-0.5 left-0 -bottom-3 bg-black transition-all duration-300;
+                        }
+                        &:hover::after {
+                            @apply w-full;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .menu {
+        @apply flex-col gap-6;
+        .navbar {
+            @apply hidden;
+        }
+        .navbar_mobile {
+            @apply flex items-center justify-between;
+            .menu_list {
+                @apply flex items-center gap-6;
+                > li{
+                    @apply flex items-center gap-6;
+                    > a {
+                        @apply relative uppercase tracking-widest;
+
+                        &::after {
+                            content: "";
+                            @apply absolute w-0 h-0.5 left-0 -bottom-3 bg-black transition-all duration-300;
+                        }
+                        &:hover::after {
+                            @apply w-full;
+                        }
                     }
                 }
             }

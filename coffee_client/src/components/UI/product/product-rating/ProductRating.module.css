@@ -5,4 +5,10 @@
   @apply text-sm font-bold mr-2;
 }
 
+@media (max-width: 1000px) {
+  .rating {
+    @apply mt-8;
+  }
+}
+
 /*# sourceMappingURL=ProductRating.module.css.map */
