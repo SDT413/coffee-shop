@@ -2,4 +2,10 @@
   @apply flex w-full justify-between items-center mb-14;
 }
 
+@media (max-width: 1000px) {
+  .header {
+    @apply flex flex-row justify-center w-full items-center mb-12 fixed z-50;
+  }
+}
+
 /*# sourceMappingURL=Header.module.css.map */

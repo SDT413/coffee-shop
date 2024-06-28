@@ -60,7 +60,7 @@
 
 @media (max-width: 600px) {
   .carousel {
-    @apply grid-cols-1 gap-4 mt-28;
+    @apply grid-cols-1 gap-4;
   }
   .item {
     @apply p-4;

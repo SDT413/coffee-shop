@@ -1,6 +1,9 @@
 .menu {
   @apply flex items-center gap-10;
 }
+.menu .mobile {
+  @apply hidden;
+}
 .menu .navbar .menu_list {
   @apply flex items-center gap-6;
 }
@@ -17,25 +20,22 @@
 .menu .navbar .menu_list > li > a:hover::after {
   @apply w-full;
 }
-.menu .navbar_mobile {
-  @apply hidden;
-}
 
 @media (max-width: 1100px) {
   .menu {
-    @apply flex-col gap-6;
+    @apply flex items-center gap-6;
   }
-  .menu .navbar {
-    @apply flex items-center justify-between;
+  .menu .mobile {
+    @apply hidden;
   }
   .menu .navbar .menu_list {
-    @apply flex items-center gap-6;
+    @apply flex items-center gap-4;
   }
   .menu .navbar .menu_list > li {
-    @apply flex items-center gap-6;
+    @apply flex items-center gap-4;
   }
   .menu .navbar .menu_list > li > a {
-    @apply relative uppercase tracking-widest;
+    @apply relative uppercase tracking-normal;
   }
   .menu .navbar .menu_list > li > a::after {
     content: "";
@@ -45,31 +45,28 @@
     @apply w-full;
   }
 }
-@media (max-width: 600px) {
-  .menu {
-    @apply flex-col gap-6;
+@media (max-width: 1000px) {
+  .menu .mobile {
+    @apply flex items-center gap-6;
+    transform: translateX(-100%);
+  }
+  .menu .desktop {
+    @apply hidden;
   }
   .menu .navbar {
     @apply hidden;
   }
-  .menu .navbar_mobile {
-    @apply flex items-center justify-between;
-  }
-  .menu .navbar_mobile .menu_list {
+}
+@media (max-width: 600px) {
+  .menu .mobile {
     @apply flex items-center gap-6;
+    transform: translateX(-60%);
   }
-  .menu .navbar_mobile .menu_list > li {
-    @apply flex items-center gap-6;
+  .menu .desktop {
+    @apply hidden;
   }
-  .menu .navbar_mobile .menu_list > li > a {
-    @apply relative uppercase tracking-widest;
-  }
-  .menu .navbar_mobile .menu_list > li > a::after {
-    content: "";
-    @apply absolute w-0 h-0.5 left-0 -bottom-3 bg-black transition-all duration-300;
-  }
-  .menu .navbar_mobile .menu_list > li > a:hover::after {
-    @apply w-full;
+  .menu .navbar {
+    @apply hidden;
   }
 }
 

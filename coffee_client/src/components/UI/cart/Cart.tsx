@@ -21,15 +21,15 @@ const Cart:FC = () => {
     const btnRef = useRef<HTMLButtonElement>(null);
     const {cart, total} = useCart();
     return (
-        <div className={styles.cart}>
-          <button className={styles.heading} onClick={() => setIsOpen(!IsOpen)}>
-              <span className={styles.badge}>{cart.length}</span>
-              <span className={styles.title}>
+            <div className={styles.cart}>
+                <button className={styles.heading} onClick={() => setIsOpen(!IsOpen)}>
+                    <span className={styles.badge}>{cart.length}</span>
+                    <span className={styles.title}>
                   Basket
               </span>
-          </button>
+                </button>
                 <Drawer isOpen={IsOpen} onClose={() => setIsOpen(false)}
-                placement="right"
+                        placement="right"
                         finalFocusRef={btnRef}>
                     <DrawerOverlay/>
                     <DrawerContent>
@@ -37,21 +37,21 @@ const Cart:FC = () => {
                         <DrawerHeader>Basket</DrawerHeader>
                         <DrawerBody>
                             <div className={styles.body}>
-                                {cart.length? cart.map(item => <CartItem item={item} key={item.product.id}/>): <div className={styles.empty}>Your basket is empty</div>}
+                                {cart.length ? cart.map(item => <CartItem item={item} key={item.product.id}/>) : <div className={styles.empty}>Your basket is empty</div>}
                             </div>
                         </DrawerBody>
                         <DrawerFooter justifyContent='space-between'
-                        borderTop='1px solid #e2e2e2'
+                                      borderTop='1px solid #e2e2e2'
                         >
                             <div className={styles.footer}>
-                                <div>Total: </div>
+                                <div>Total:</div>
                                 <div>{PriceFormater(total)}</div>
                             </div>
                             <Button colorScheme={'green'}>Checkout</Button>
                         </DrawerFooter>
                     </DrawerContent>
-                    </Drawer>
-        </div>
+                </Drawer>
+            </div>
     );
 };
 

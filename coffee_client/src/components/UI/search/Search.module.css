@@ -18,4 +18,14 @@
   @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-green;
 }
 
+@media (max-width: 1000px) {
+  .search {
+    @apply w-1/2;
+    right: 15%;
+  }
+  .search::before {
+    @apply bg-transparent sticky top-0 left-0;
+  }
+}
+
 /*# sourceMappingURL=Search.module.css.map */

@@ -1,6 +1,8 @@
 .menu {
     @apply flex items-center gap-10;
-
+    .mobile {
+        @apply hidden;
+    }
     .navbar {
         .menu_list {
             @apply flex items-center gap-6;
@@ -20,23 +22,21 @@
             }
         }
     }
-
-    .navbar_mobile {
-        @apply hidden;
-    }
 }
 
 @media (max-width: 1100px){
     .menu {
-        @apply flex-col gap-6;
+        @apply flex items-center gap-6;
+        .mobile {
+            @apply hidden;
+        }
         .navbar {
-            @apply flex items-center justify-between;
             .menu_list {
-                @apply flex items-center gap-6;
+                @apply flex items-center gap-4;
                 > li{
-                    @apply flex items-center gap-6;
+                    @apply flex items-center gap-4;
                     > a {
-                        @apply relative uppercase tracking-widest;
+                        @apply relative uppercase tracking-normal;
 
                         &::after {
                             content: "";
@@ -48,35 +48,37 @@
                     }
                 }
             }
+        }
+    }
+}
+
+
+@media (max-width: 1000px){
+    .menu {
+        .mobile {
+            @apply flex items-center gap-6;
+           transform: translateX(-100%)
+        }
+        .desktop {
+            @apply hidden;
+        }
+        .navbar {
+            @apply hidden;
         }
     }
 }
 
 @media (max-width: 600px){
     .menu {
-        @apply flex-col gap-6;
-        .navbar {
+        .mobile {
+            @apply flex items-center gap-6;
+            transform: translateX(-60%)
+        }
+        .desktop {
             @apply hidden;
         }
-        .navbar_mobile {
-            @apply flex items-center justify-between;
-            .menu_list {
-                @apply flex items-center gap-6;
-                > li{
-                    @apply flex items-center gap-6;
-                    > a {
-                        @apply relative uppercase tracking-widest;
-
-                        &::after {
-                            content: "";
-                            @apply absolute w-0 h-0.5 left-0 -bottom-3 bg-black transition-all duration-300;
-                        }
-                        &:hover::after {
-                            @apply w-full;
-                        }
-                    }
-                }
-            }
+        .navbar {
+            @apply hidden;
         }
     }
 }

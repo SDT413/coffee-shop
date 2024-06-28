@@ -11,7 +11,8 @@ export default function RootLayout({children,}: {
     return (
         <html lang="en">
         <body className={inter.className}>
-        <ReduxAndChakraProviders children={children} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+        <ReduxAndChakraProviders children={children}/>
         </body>
         </html>
 

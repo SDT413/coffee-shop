@@ -5,6 +5,7 @@ import {ChevronDownIcon} from "@chakra-ui/icons";
 import {SortingData} from "@/components/data/Sorting.data";
 import {EnumSort, ISortingProps} from "@/components/interfaces/sorting.interface";
 import {useActions} from "@/hooks/useActions";
+import styles from './Sorting.module.scss';
 
 const Sorting:FC<ISortingProps> = ({
     sortType,
@@ -14,6 +15,7 @@ const Sorting:FC<ISortingProps> = ({
     const chosenType = SortingData.find((item) => item.value === sortType)?.name;
     setSortTypeConfig(chosenType as EnumSort);
     return (
+        <div className={styles.sorting}>
       <Menu>
           <MenuButton as={Button} leftIcon={<ChevronDownIcon/>}>
                 {chosenType}
@@ -29,6 +31,7 @@ const Sorting:FC<ISortingProps> = ({
                 ))}
             </MenuList>
         </Menu>
+        </div>
     );
 };
 

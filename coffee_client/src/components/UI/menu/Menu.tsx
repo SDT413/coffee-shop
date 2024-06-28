@@ -8,19 +8,22 @@ import styles from './Menu.module.scss';
 const Menu:FC = () => {
     return (
         <div className={styles.menu}>
-            <Link href={'/all'}>
+            <span className={styles.desktop}>
+                 <Link href={'/all'}>
                 <Image src={'/images/logo.png'} width={100} height={100} alt={'logo'}/>
             </Link>
+            </span>
+            <span className={styles.mobile}>
+                 <button>
+                <Image src={'/images/logo.png'} width={100} height={100} alt={'logo'}/>
+            </button>
+            </span>
+
             <nav className={styles.navbar}>
                 <ul className={styles.menu_list}>
-                {menu.map(item => <MenuItem item={item} key={item.path}/>)}
+                    {menu.map(item => <MenuItem item={item} key={item.path}/>)}
                 </ul>
             </nav>
-                <nav className={styles.navbar_mobile}>
-                    <ul className={styles.menu_list}>
-                        {menu.map(item => <MenuItem item={item} key={item.path}/>)}
-                    </ul>
-                </nav>
         </div>
     );
 };

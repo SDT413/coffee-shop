@@ -31,4 +31,40 @@
   @apply font-semibold text-xl;
 }
 
+@media (max-width: 1000px) {
+  .cart {
+    @apply flex flex-col items-center fixed z-50 right-4 top-14;
+  }
+  .cart .heading {
+    @apply flex items-center;
+  }
+  .cart .heading .badge {
+    @apply mr-1 p-1 flex w-5 h-5 items-center justify-center rounded-full bg-red text-sm text-white;
+  }
+  .cart .heading .title {
+    @apply tracking-normal text-base;
+  }
+  .cart .body .empty {
+    @apply flex text-center text-beige text-xl font-semibold items-center justify-center h-32 w-full rounded-md mb-4 mt-4;
+  }
+  .cart .body .item {
+    @apply flex items-center pb-6 pt-4 border-b border-b-[#F7F4F0];
+  }
+  .cart .body .item .name {
+    @apply w-36 truncate font-semibold tracking-wider;
+  }
+  .cart .body .item .price {
+    @apply mt-1 text-sm text-beige;
+  }
+  .cart .body .item .size {
+    @apply text-sm text-beige opacity-60;
+  }
+  .cart .footer > div:first-child {
+    @apply text-sm text-beige;
+  }
+  .cart .footer > div:last-child {
+    @apply font-semibold text-xl;
+  }
+}
+
 /*# sourceMappingURL=Cart.module.css.map */
