@@ -5,7 +5,7 @@ import {EnumSort} from "@/components/interfaces/sorting.interface";
 
 const initialState: IConfig = {
     searchQuery: '',
-    category: window.location.pathname.split('/')[1] === 'all' ? '' : window.location.pathname.split('/')[1],
+    category: 'all',
     sortType: EnumSort.NEWEST,
     activeDetailLink: ''
 }

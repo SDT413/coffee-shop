@@ -3,17 +3,14 @@ import {Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import {Button} from "@chakra-ui/button";
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import {SortingData} from "@/components/data/Sorting.data";
-import {EnumSort, ISortingProps} from "@/components/interfaces/sorting.interface";
-import {useActions} from "@/hooks/useActions";
+import {ISortingProps} from "@/components/interfaces/sorting.interface";
 import styles from './Sorting.module.scss';
 
 const Sorting:FC<ISortingProps> = ({
     sortType,
     setSortType
 }) => {
-    const {setSortTypeConfig} = useActions();
     const chosenType = SortingData.find((item) => item.value === sortType)?.name;
-    setSortTypeConfig(chosenType as EnumSort);
     return (
         <div className={styles.sorting}>
       <Menu>
@@ -24,9 +21,8 @@ const Sorting:FC<ISortingProps> = ({
                 {SortingData.map((item) => (
                     <MenuItem key={item.value} onClick={() => {
                         setSortType(item.value);
-                        setSortTypeConfig(item.value);
                     }}>
-                          {item.name}
+                        {item.name}
                     </MenuItem>
                 ))}
             </MenuList>

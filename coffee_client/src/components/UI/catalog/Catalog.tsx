@@ -3,8 +3,6 @@ import ProductsSlider from "@/components/UI/catalog/product_slider/ProductsSlide
 import {IProduct} from "@/components/interfaces/Product.interface";
 import Sorting from "@/components/UI/catalog/sorting/Sorting";
 import {EnumSort} from "@/components/interfaces/sorting.interface";
-import {useQuery} from "@tanstack/react-query";
-import ProductsService from "@/api/Products.service";
 import Loader from "@/components/UI/Loader/Loader";
 import useGetAllProducts from "@/hooks/Query/useGetAllProducts";
 import styles from './Catalog.module.scss';

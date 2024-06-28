@@ -17,6 +17,16 @@
     @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-green;
   }
 }
+.icon_container {
+    @apply w-full h-full mt-1;
+}
+
+@-moz-document url-prefix() {
+  .icon_container {
+    @apply w-full h-full mt-1.5;
+  }
+}
+
 
 @media (max-width: 1000px) {
   .search {

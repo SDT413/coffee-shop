@@ -10,26 +10,31 @@ const Search:FC = () => {
     const config = useConfig();
     return (
         <div className={styles.search}>
-            <InputGroup size = 'xs'>
+
+            <InputGroup size='xs'>
                 <InputLeftElement
                     pointerEvents='none'
-                    children={<SearchIcon color="gray.500" top={1} position='relative'/>}
+                    children={
+                        <SearchIcon color="gray.500" className={styles.icon}/>
+                    }
+                    className={styles.icon_container}
                 />
             <Input className={styles.input}
-                variant="flushed"
-                   size = 'base'
-                   type = 'search'
-                   placeholder = 'Search'
-                   value = {config.searchQuery}
-                   onChange = {(e) => {
-                          setSearchQuery(e.target.value);
-                   } }
-                    _focus={
-                        {
-                            borderColor: 'green.400'
-                        }
-                    }
+                   variant="flushed"
+                   size='base'
+                   type='search'
+                   placeholder='Search'
+                   value={config.searchQuery}
+                   onChange={(e) => {
+                       setSearchQuery(e.target.value);
+                   }}
+                   _focus={
+                       {
+                           borderColor: 'green.400'
+                       }
+                   }
             />
+
             </InputGroup>
         </div>
     );

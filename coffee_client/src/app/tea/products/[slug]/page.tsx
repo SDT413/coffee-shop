@@ -14,7 +14,9 @@ interface PageProps {
 const ProductPage: NextPage<PageProps> = ({params}) => {
     const [product, setProduct] = useState<IProduct>();
     const {setActiveDetailLink} = useActions();
+    const {setCategory} = useActions();
     useEffect(() => {
+        setCategory("tea");
         const getProduct = async () => {
             const response = await ProductsService.getProductBySlug(params.slug);
             const product = response.data as IProduct;

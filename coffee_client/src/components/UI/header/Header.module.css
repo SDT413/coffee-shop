@@ -13,6 +13,11 @@
   .header_mobile {
     @apply bg-white flex flex-row justify-between w-full mb-12 fixed z-50 top-0 left-0 right-0;
   }
+  @-moz-document url-prefix() {
+    .header_mobile {
+      @apply bg-white flex flex-row justify-center gap-3;
+    }
+  }
 }
 
 /*# sourceMappingURL=Header.module.css.map */
