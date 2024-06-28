@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  @apply text-base text-black;
-  overflow-x: hidden;
+  @apply text-base text-black w-full overflow-x-hidden;
 }
 
 .disabled {

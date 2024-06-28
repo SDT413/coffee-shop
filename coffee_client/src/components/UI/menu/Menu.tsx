@@ -13,12 +13,6 @@ const Menu:FC = () => {
                 <Image src={'/images/logo.png'} width={100} height={100} alt={'logo'}/>
             </Link>
             </span>
-            <span className={styles.mobile}>
-                 <button>
-                <Image src={'/images/logo.png'} width={100} height={100} alt={'logo'}/>
-            </button>
-            </span>
-
             <nav className={styles.navbar}>
                 <ul className={styles.menu_list}>
                     {menu.map(item => <MenuItem item={item} key={item.path}/>)}

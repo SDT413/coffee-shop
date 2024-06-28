@@ -1,25 +1,63 @@
 .menu {
   @apply hidden;
-  .navbar {
-    width: 100%;
-
-    .menu_list {
-      @apply flex justify-between;
-      > li {
-        > a {
-          @apply uppercase;
-          > button {
-            @apply bg-green text-white px-4 py-2 rounded-md;
-          }
-        }
-
-      }
-    }
-  }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 950px) {
+    .menu {
+        @apply w-full flex mt-32 mb-8;
+      .navbar {
+        @apply w-full;
+        .menu_list {
+          @apply flex justify-between;
+          > li {
+            > a {
+              @apply uppercase;
+              > button {
+                @apply bg-green text-white px-8 py-4 rounded-md text-xl;
+              }
+            }
+
+          }
+        }
+      }
+    }
+}
+
+@media (max-width: 600px) {
     .menu {
         @apply flex justify-center items-center mt-32 mb-8 z-50;
+      .navbar {
+       @apply w-full;
+
+        .menu_list {
+          @apply flex justify-between;
+          > li {
+            > a {
+              @apply uppercase;
+              > button {
+                @apply bg-green text-white px-4 py-2 rounded-md text-base;
+              }
+            }
+
+          }
+        }
+      }
+    }
+}
+
+@media (max-width: 330px) {
+    .menu {
+        @apply mt-24;
+      .navbar {
+        .menu_list {
+          > li {
+            > a {
+              > button {
+                @apply px-2 py-1;
+              }
+            }
+          }
+        }
+      }
     }
 }

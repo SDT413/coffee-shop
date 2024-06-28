@@ -10,12 +10,26 @@
     }
   }
   .image{
-    @apply -mt-[4.5rem] block;
+    @apply -mt-[4.5rem] block ml-auto mr-auto;
 
     .fixed_size {
       min-height: 320px;
       max-height: 320px;
     }
   }
+.mobile_image {
+    @apply hidden;
+  }
+}
 
+@media (max-width: 950px) {
+  .itemHeader {
+    .desktop_image {
+      @apply hidden;
+    }
+
+    .mobile_image {
+      @apply block ml-auto mr-auto;
+    }
+  }
 }

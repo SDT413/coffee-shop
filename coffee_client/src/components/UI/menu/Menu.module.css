@@ -1,9 +1,6 @@
 .menu {
   @apply flex items-center gap-10;
 }
-.menu .mobile {
-  @apply hidden;
-}
 .menu .navbar .menu_list {
   @apply flex items-center gap-6;
 }
@@ -25,9 +22,6 @@
   .menu {
     @apply flex items-center gap-6;
   }
-  .menu .mobile {
-    @apply hidden;
-  }
   .menu .navbar .menu_list {
     @apply flex items-center gap-4;
   }
@@ -46,22 +40,6 @@
   }
 }
 @media (max-width: 1000px) {
-  .menu .mobile {
-    @apply flex items-center gap-6;
-    transform: translateX(-100%);
-  }
-  .menu .desktop {
-    @apply hidden;
-  }
-  .menu .navbar {
-    @apply hidden;
-  }
-}
-@media (max-width: 600px) {
-  .menu .mobile {
-    @apply flex items-center gap-6;
-    transform: translateX(-60%);
-  }
   .menu .desktop {
     @apply hidden;
   }

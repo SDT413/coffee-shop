@@ -23,19 +23,20 @@ const Meta:FC<PropsWithChildren<IMeta>>
                   <title itemProp={'headline'}>{titleMerge(title)}</title>
                   {
                       description ? (
-                            <>
-                                <meta itemProp={'description'} name = {'description'} content={onlyText(description, 152)}/>
-                                <link rel='canonical' href = {url}/>
-                                <meta property={'og:type'} content={type}/>
-                                <meta property={'og:locale'} content='en'/>
-                                <meta property={'og:title'} content={titleMerge(title)}/>
-                                <meta property={'og:url'} content={url}/>
-                                <meta property={'og:image'} content={image}/>
-                                <meta property={'og:site_name'} content={siteName}/>
-                                <meta property={'og:description'} content={onlyText(description, 197)}/>
-                           </>
-                        ) : (
-                            <meta name = {'robots'} content={'noindex, nofollow'}/>
+                          <>
+                              <meta itemProp={'description'} name={'description'} content={onlyText(description, 152)}/>
+                              <link rel='canonical' href={url}/>
+                              <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+                              <meta property={'og:type'} content={type}/>
+                              <meta property={'og:locale'} content='en'/>
+                              <meta property={'og:title'} content={titleMerge(title)}/>
+                              <meta property={'og:url'} content={url}/>
+                              <meta property={'og:image'} content={image}/>
+                              <meta property={'og:site_name'} content={siteName}/>
+                              <meta property={'og:description'} content={onlyText(description, 197)}/>
+                          </>
+                      ) : (
+                          <meta name={'robots'} content={'noindex, nofollow'}/>
                       )}
                     {children}
                 </Head>

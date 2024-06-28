@@ -39,11 +39,11 @@
 
 @media (max-width: 1000px) {
     .cart {
-        @apply flex flex-col items-center fixed z-50 right-4 top-14;
+        @apply flex items-center sticky z-50 right-8;
       .heading{
         @apply flex items-center;
         .badge{
-          @apply mr-1 p-1 flex w-5 h-5 items-center justify-center rounded-full bg-red text-sm text-white;
+          @apply mr-1 p-1 flex w-5 h-5 justify-center rounded-full bg-red text-sm text-white;
         }
         .title{
           @apply tracking-normal text-base;
@@ -78,3 +78,17 @@
   }
 }
 }
+
+@media (max-width: 600px) {
+  .cart {
+    @apply right-4;
+  }
+}
+
+@media (max-width: 330px) {
+  .cart {
+    @apply right-2;
+  }
+}
+
+

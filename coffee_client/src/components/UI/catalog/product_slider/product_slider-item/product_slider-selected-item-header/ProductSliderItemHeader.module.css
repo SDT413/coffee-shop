@@ -11,11 +11,23 @@
   @apply text-white;
 }
 .itemHeader .image {
-  @apply -mt-[4.5rem] block;
+  @apply -mt-[4.5rem] block ml-auto mr-auto;
 }
 .itemHeader .image .fixed_size {
   min-height: 320px;
   max-height: 320px;
+}
+.itemHeader .mobile_image {
+  @apply hidden;
+}
+
+@media (max-width: 950px) {
+  .itemHeader .desktop_image {
+    @apply hidden;
+  }
+  .itemHeader .mobile_image {
+    @apply block ml-auto mr-auto;
+  }
 }
 
 /*# sourceMappingURL=ProductSliderItemHeader.module.css.map */

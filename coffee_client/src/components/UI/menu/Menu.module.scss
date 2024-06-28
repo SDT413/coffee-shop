@@ -1,8 +1,5 @@
 .menu {
     @apply flex items-center gap-10;
-    .mobile {
-        @apply hidden;
-    }
     .navbar {
         .menu_list {
             @apply flex items-center gap-6;
@@ -27,9 +24,6 @@
 @media (max-width: 1100px){
     .menu {
         @apply flex items-center gap-6;
-        .mobile {
-            @apply hidden;
-        }
         .navbar {
             .menu_list {
                 @apply flex items-center gap-4;
@@ -55,25 +49,6 @@
 
 @media (max-width: 1000px){
     .menu {
-        .mobile {
-            @apply flex items-center gap-6;
-           transform: translateX(-100%)
-        }
-        .desktop {
-            @apply hidden;
-        }
-        .navbar {
-            @apply hidden;
-        }
-    }
-}
-
-@media (max-width: 600px){
-    .menu {
-        .mobile {
-            @apply flex items-center gap-6;
-            transform: translateX(-60%)
-        }
         .desktop {
             @apply hidden;
         }

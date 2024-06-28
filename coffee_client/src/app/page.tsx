@@ -12,6 +12,7 @@ export default function HomePage() {
   useEffect(() => {
     if (config) {
       if (config.activeDetailLink && config.activeDetailLink !== "") {
+        /*console.log("redirecting to from app: " + config.category + '/' + config.activeDetailLink);*/
         router.push("/"+config.category + '/' + config.activeDetailLink);
       }
     }
