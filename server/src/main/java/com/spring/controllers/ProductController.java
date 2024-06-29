@@ -1,4 +1,4 @@
-package com.spring.resources;
+package com.spring.controllers;
 
 import com.spring.entities.Product;
 import com.spring.services.ProductService;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/products")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
-public class ProductResource {
+public class ProductController {
     private final ProductService productService;
 
     @GetMapping("")

@@ -1,0 +1,13 @@
+.App{
+
+}
+.first_half{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    grid-column: span 1 / span 1;
+    background-color: #EEF2FF;
+}
+.second_half{
+    display: block;
+}
+

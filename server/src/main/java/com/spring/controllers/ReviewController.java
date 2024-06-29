@@ -1,4 +1,4 @@
-package com.spring.resources;
+package com.spring.controllers;
 
 import com.spring.entities.Review;
 import com.spring.services.ReviewService;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/products")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
-public class ReviewResource {
+public class ReviewController {
     private final ReviewService reviewService;
     @GetMapping("/{productId}/reviews")
     public List<Review> getAllReviews(@PathVariable("productId") Long productId) {

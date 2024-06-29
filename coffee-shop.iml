@@ -78,5 +78,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: org.springframework:spring-web:6.1.10" level="project" />
+    <orderEntry type="library" name="Maven: com.stripe:stripe-java:21.1.0" level="project" />
   </component>
 </module>

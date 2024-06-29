@@ -15,11 +15,13 @@ import {useSelector} from "react-redux";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import PriceFormater from "@/components/utils/PriceFormater";
 import {useCart} from "@/hooks/useCart";
+import StripeEmbed from "@/components/stripe/StripeEmbed";
 
 const Cart:FC = () => {
     const [IsOpen, setIsOpen] = useState(false);
     const btnRef = useRef<HTMLButtonElement>(null);
     const {cart, total} = useCart();
+    const [showStripeEmbed, setShowStripeEmbed] = useState(false);
     return (
             <div className={styles.cart}>
                 <button className={styles.heading} onClick={() => setIsOpen(!IsOpen)}>
@@ -35,6 +37,11 @@ const Cart:FC = () => {
                     <DrawerContent>
                         <DrawerCloseButton/>
                         <DrawerHeader>Basket</DrawerHeader>
+                        {showStripeEmbed ? <div className={styles.stripeEmbed}>
+                            <StripeEmbed setShowStripeEmbed={setShowStripeEmbed} price={total} email={"test@gmail.com"}/>
+                            </div>
+                            :
+                            <>
                         <DrawerBody>
                             <div className={styles.body}>
                                 {cart.length ? cart.map(item => <CartItem item={item} key={item.product.id}/>) : <div className={styles.empty}>Your basket is empty</div>}
@@ -47,8 +54,11 @@ const Cart:FC = () => {
                                 <div>Total:</div>
                                 <div>{PriceFormater(total)}</div>
                             </div>
-                            <Button colorScheme={'green'}>Checkout</Button>
+                            <Button colorScheme={'green'} onClick={() => setShowStripeEmbed(true)}
+                            >Checkout</Button>
                         </DrawerFooter>
+                            </>
+                        }
                     </DrawerContent>
                 </Drawer>
             </div>

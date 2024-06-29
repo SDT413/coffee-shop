@@ -37,6 +37,10 @@
         }
   }
 
+.stripeEmbed{
+  @apply w-full h-full flex justify-center items-center mb-32;
+}
+
 @media (max-width: 1000px) {
     .cart {
         @apply flex items-center sticky z-50 right-8;
