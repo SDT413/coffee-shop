@@ -37,8 +37,9 @@ const Cart:FC = () => {
                     <DrawerContent>
                         <DrawerCloseButton/>
                         <DrawerHeader>Basket</DrawerHeader>
-                        {showStripeEmbed ? <div className={styles.stripeEmbed}>
-                            <StripeEmbed setShowStripeEmbed={setShowStripeEmbed} price={total} email={"test@gmail.com"}/>
+                        {showStripeEmbed && total ? <div className={styles.stripeEmbed}>
+                            <StripeEmbed setShowStripeEmbed={setShowStripeEmbed} price={total}
+                                         email={"test@gmail.com"}/>
                             </div>
                             :
                             <>
@@ -54,7 +55,8 @@ const Cart:FC = () => {
                                 <div>Total:</div>
                                 <div>{PriceFormater(total)}</div>
                             </div>
-                            <Button colorScheme={'green'} onClick={() => setShowStripeEmbed(true)}
+                            <Button colorScheme={'green'} isDisabled={total <= 0}
+                                    onClick={() => setShowStripeEmbed(true)}
                             >Checkout</Button>
                         </DrawerFooter>
                             </>

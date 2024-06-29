@@ -14,14 +14,14 @@ const Sorting:FC<ISortingProps> = ({
     return (
         <div className={styles.sorting}>
       <Menu>
-          <MenuButton as={Button} leftIcon={<ChevronDownIcon/>}>
+          <MenuButton as={Button} leftIcon={<ChevronDownIcon/>} className={styles.menu_button}>
                 {chosenType}
           </MenuButton>
-          <MenuList>
+          <MenuList className={styles.menu_list}>
                 {SortingData.map((item) => (
                     <MenuItem key={item.value} onClick={() => {
                         setSortType(item.value);
-                    }}>
+                    }} className={styles.menu_item}>
                         {item.name}
                     </MenuItem>
                 ))}

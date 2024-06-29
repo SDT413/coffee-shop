@@ -19,7 +19,7 @@
 }
 
 .icon_container {
-  @apply w-full h-full mt-1;
+  @apply w-full h-full mt-[5px] ml-[5px];
 }
 
 @-moz-document url-prefix() {
