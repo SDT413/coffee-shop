@@ -9,7 +9,7 @@ export default function RootLayout({children,}: {
     children: ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning={true}>
         <body className={inter.className}>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
         <ReduxAndChakraProviders children={children}/>
