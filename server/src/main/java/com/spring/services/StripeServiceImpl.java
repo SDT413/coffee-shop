@@ -1,5 +1,6 @@
 package com.spring.services;
 
+import com.spring.consts.Consts;
 import com.stripe.Stripe;
 import com.stripe.model.PaymentIntent;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Map;
 public class StripeServiceImpl implements StripeService {
 
     public StripeServiceImpl() {
-        Stripe.apiKey = "sk_test_51OFyYpFa7pRbfFJoN3KZ8GebuIiH22c9tfbh9We3A3VkIEQsCkf26dtCJhZ19outfXr7TpygDIwdNHewALKEmWEi00eorzP86s";
+        Stripe.apiKey = Consts.STRIPE_SECRET_KEY;
     }
 
     public Object CreateCustomer (String email) {

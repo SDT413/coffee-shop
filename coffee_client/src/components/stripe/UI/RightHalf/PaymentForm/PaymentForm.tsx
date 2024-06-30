@@ -8,8 +8,9 @@ import {
 } from '@stripe/stripe-js';
 import "./Payment.module.css";
 import {useCreatePaymentIntent} from "@/hooks/Query/useCreatePaymentIntent";
+import {STRIPE_PUBLIC_KEY} from "@/components/stripe/UI/RightHalf/PaymentForm/consts";
 
-const stripePromise = loadStripe('pk_test_51OFyYpFa7pRbfFJofkLgWFxcEKReofXwtWF0dNTUD3rAHtjH7SYvn97l7TPDz2A4vQOesp737WOW8FYaIr9kzsOZ00tvKLrqrs');
+const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
 interface PaymentFormProps {
     price: number;
