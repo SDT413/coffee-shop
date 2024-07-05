@@ -11,7 +11,7 @@ const UseGetAllProducts = ({products, sort, category, search, excludeId}:
         , {
             initialData: products,
             onError: (err) => {
-                console.log("Something went wrong in UseAdmins.tsx");
+                console.log("Something went wrong in useGetAllProducts.ts: ", err);
             }
         }
     );
